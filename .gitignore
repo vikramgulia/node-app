@@ -7,3 +7,4 @@
 /node_modules/cookie-parser
 /node_modules/body-parser
 /node_modules/.bin
+/.idea
