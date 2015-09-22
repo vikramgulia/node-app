@@ -1,6 +1,15 @@
 extends layout
 
+head
+    link(rel='stylesheet', href='/css/style.css')
+
 block content
     h1= title
     p Welcome to #{title}
+    if user != null
+        p Hi, #{user}
+    else
+        p Hi, Stranger
     img(src='/favicon.png', alt='Smiley face', height='100', width='100')
+    br
+    a(href='/signin') Let us get you logged in
