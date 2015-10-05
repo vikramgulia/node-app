@@ -32,9 +32,9 @@ router.get('/business', function (req, res, next) {
 });
 
 
-setInterval(function () {
+/*setInterval(function () {
     console.log('second passed');
-}, 1000);
+}, 1000);*/
 
 
 module.exports = router;
