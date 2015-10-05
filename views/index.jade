@@ -1,6 +1,6 @@
 extends layout
 
-head
+block styles
     link(rel='stylesheet', href='/css/style.css')
 
 block content
@@ -12,4 +12,5 @@ block content
         p Hi, Stranger
     img(src='/favicon.png', alt='Smiley face', height='100', width='100')
     br
-    a(href='/signin') Let us get you logged in
+    if user === null
+        a(href='/user') Let us get you logged in
