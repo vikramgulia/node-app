@@ -1,17 +1,18 @@
 var yelp = require("yelp").createClient({
-    consumer_key: "grCj12VbKzHewKZGg65Elg",
-    consumer_secret: "h4WwlC7iyx8Wu05nWGP0zlJ58Wg",
-    token: "jFqueSCJpbDiYDcubNYp9Pc5VZjc-jHf",
-    token_secret: "lU3He7hQLueyyXlptDcSah3Kaa0"
+    consumer_key: process.env.CONSUMER_KEY.toString(),
+    consumer_secret: process.env.CONSUMER_SECRET.toString(),
+    token: process.env.TOKEN.toString(),
+    token_secret: process.env.TOKEN_SECRET.toString()
 });
 
 var express = require('express');
+var fs = require('fs');
 var router = express.Router();
 
 // See http://www.yelp.com/developers/documentation/v2/search_api
 router.get('/search', function (req, res, next) {
     res.setHeader("Content-Type", "application/json");
-    yelp.search({term: "food", location: "Montreal"}, function (error, data) {
+    yelp.search({term: "foodtrucks", location: "Denver"}, function (error, data) {
         if (error)
             res.send(error);
         if (data)
@@ -29,5 +30,11 @@ router.get('/business', function (req, res, next) {
             res.send(data);
     });
 });
+
+
+setInterval(function () {
+    console.log('second passed');
+}, 1000);
+
 
 module.exports = router;
